@@ -150,6 +150,7 @@ public class Main {
                     break;
 
                 default:
+                // use for handle all cases above that is not match
                     System.out.println("Invalid option, please try again.");
                     break;
             }
