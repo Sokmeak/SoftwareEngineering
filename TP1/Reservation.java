@@ -106,7 +106,7 @@ class Reservation {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             this.startDate = LocalDateTime.parse(startDate, formatter);
         } else {
-            this.startDate = null;
+            throw new RuntimeException("Invalid date (date must be in the future).");
         }
     }
 
@@ -119,7 +119,7 @@ class Reservation {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             this.endDate = LocalDateTime.parse(endDate, formatter);
         } else {
-            this.endDate = null;
+           throw  new RuntimeException("Invalid end date");
         }
     }
 
@@ -131,7 +131,7 @@ class Reservation {
         if (ValidateRoomNumber(roomNumber)) {
             this.roomNumber = roomNumber;
         } else {
-            this.roomNumber = "";
+            throw  new RuntimeException("Invalid Room number");
         }
     }
 
@@ -143,7 +143,7 @@ class Reservation {
         if (ValidationName(name)) {
             this.name = name;
         } else {
-            this.name = "ADMIN";
+           throw  new RuntimeException("Invalid name");
         }
     }
 

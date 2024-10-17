@@ -8,11 +8,11 @@ public class Main {
         // Default reservations:
         ArrayList<Reservation> myReservations = new ArrayList<>();
         // the first three reservations
-        Reservation reservation1 = new Reservation("F-106", "John", "2024-12-01 14:00", "2024-12-01 18:00",
+        Reservation reservation1 = new Reservation("F-106", "John", "2024-11-01 14:00", "2024-12-01 18:00",
                 "The first come");
         Reservation reservation2 = new Reservation("F-107", "Smith", "2024-12-01 14:00", "2024-12-01 18:00",
                 "Back at midnight");
-        Reservation reservation3 = new Reservation("F-108", "Jane", "2024-10-11 14:00", "2024-11-13 19:00",
+        Reservation reservation3 = new Reservation("F-108", "Jane", "2024-11-11 14:00", "2024-11-13 19:00",
                 "No extra time");
 
         myReservations.add(reservation1);
@@ -55,9 +55,33 @@ public class Main {
                     System.out.print("Enter other remark (optional): ");
                     String otherRemark = scanner.nextLine();
 
-                    Reservation newReservation = new Reservation(roomNum, name, startDate, endDate, otherRemark);
-                    myReservations.add(newReservation);
-                    System.out.println("Reservation created successfully: " + newReservation.toString());
+
+                    try {
+                        Reservation newReservation = new Reservation(roomNum, name, startDate, endDate, otherRemark);
+                        if(isDuplicated(myReservations, newReservation)){
+                            System.out.println("Duplicated Reservation!");
+                        }else{
+                            myReservations.add(newReservation);
+                            System.out.println("Reservation created successfully!");
+                        }
+
+
+                    } catch (Exception e) {
+
+                        
+                        System.out.println(e.getMessage());
+
+                        System.out.println("Reservation failed!");
+
+
+                    }
+                       
+              
+
+
+
+                   
+                  
 
                     break;
 
@@ -157,6 +181,24 @@ public class Main {
         } while (opt != 6);
 
         scanner.close();
+    }
+    // check if duplicate
+
+
+    static Boolean isDuplicated(ArrayList<Reservation> reservations,Reservation reservation){
+
+        for (Reservation res : reservations){
+            if(res.getRoomNumber().equals(reservation.getRoomNumber()) && res.getStartDate().equals(reservation.getStartDate())){
+                return true;
+            }
+
+        }
+
+
+
+
+
+        return false;
     }
 
     // Helper method to find reservation by room number
