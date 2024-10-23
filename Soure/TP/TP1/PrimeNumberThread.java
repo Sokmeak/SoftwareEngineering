@@ -76,17 +76,18 @@ public class PrimeNumberThread {
 
             threads.add(pct);
             pct.start();
-
+            
+            try {
+                pct.join();
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
         }
 
         int totalPrime = 0;
         for (PrimeCounterThread th : threads) {
 
-            try {
-                th.join();
-            } catch (Exception e) {
-                // TODO: handle exception
-            }
+           
             totalPrime += th.getPrimeNumbers().size();
 
         }

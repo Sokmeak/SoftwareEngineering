@@ -4,6 +4,7 @@ class MyThread extends Thread {
 
     private boolean isRunning;
 
+    
     public void runMyThread() {
         isRunning = true;
     }
