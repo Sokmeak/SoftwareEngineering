@@ -2,7 +2,7 @@ import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
-public class DemoThread {
+public class HitMe2 {
     static boolean isRunning = true;
     static String text = "HitMe!";
 
@@ -31,7 +31,7 @@ public class DemoThread {
 
         System.out.println("\n");
 
-        System.out.print(text + " ");
+        System.out.print( " Thank you!");
 
     }
 
