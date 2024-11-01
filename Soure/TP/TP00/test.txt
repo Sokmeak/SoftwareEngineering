@@ -1,0 +1,23 @@
+
+        /// reserve.setRoomNumber("f-222");
+
+        // reserve.setName("Ka");
+
+        // System.out.println(reserve.getName());
+
+        // reserve.setStartDate("2024-11-01 14:30");
+
+        // String startTimeString = "2024-12-01 14:00";
+
+        // // End time (at least 1 hour after start time)
+        // String endTimeString = "2024-12-01 16:00";
+
+        // reserve.setStartDate(startTimeString);
+
+        // reserve.setEndDate(endTimeString);
+
+        // System.out.println(reserve.getStartDate());
+
+        // System.out.println(reserve.getEndDate());
+
+        // System.out.println(reservation1.toString());

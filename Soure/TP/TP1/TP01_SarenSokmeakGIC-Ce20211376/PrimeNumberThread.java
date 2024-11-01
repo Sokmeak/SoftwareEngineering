@@ -82,6 +82,8 @@ public class PrimeNumberThread {
             } catch (Exception e) {
                 // TODO: handle exception
             }
+
+            System.out.println();
         }
 
         int totalPrime = 0;

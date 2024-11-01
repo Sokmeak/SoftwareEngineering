@@ -38,6 +38,7 @@ class MyThread2 extends Thread {
                         if (text.equalsIgnoreCase("exit")) {
                             stopThread();
                         }
+
                     }
                 }
 

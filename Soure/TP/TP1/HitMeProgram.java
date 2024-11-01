@@ -5,7 +5,7 @@ class HitMeThread extends Thread {
     private volatile boolean isRunning = true; // Ensure visibility across threads
     private volatile boolean userInputReceived = false;
     String t = "HitMe!";
-    private volatile String textToPrint = ""; // Default text is "HitMe!"
+    private volatile char textToPrint ; // Default text is "HitMe!"
 
     public void stopThread() {
         isRunning = false; // Method to stop the thread
@@ -22,7 +22,7 @@ class HitMeThread extends Thread {
                 System.out.println(textToPrint+"=============");
             }
             try {
-                Thread.sleep(100); // Add small delay for readability
+                Thread.sleep(1000); // Add small delay for readability
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -30,7 +30,7 @@ class HitMeThread extends Thread {
     }
 
     // Method to update text to print
-    public void setTextToPrint(String text) {
+    public void setTextToPrint(char text) {
         this.userInputReceived = true;
         this.textToPrint = text;
     }
@@ -41,17 +41,18 @@ public class HitMeProgram {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         HitMeThread hitMeThread = new HitMeThread();
+        char userInput ;
 
         // Start the "HitMe!" printing thread
         hitMeThread.start();
 
         // Main thread to handle user input
         while (true) {
-            String userInput = scanner.nextLine();
+           userInput= scanner.next().charAt(1);
 
             hitMeThread.setTextToPrint(userInput);
 
-            if (userInput.isEmpty()) {
+            if (userInput == '0') {
                 // Stop the program if user presses ENTER with no input
 
                 hitMeThread.stopThread();
