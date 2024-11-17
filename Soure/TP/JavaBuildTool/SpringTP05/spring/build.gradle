@@ -4,7 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.6'
 }
 
-group = 'springc'
+group = 'com.springc'
 version = '0.0.1-SNAPSHOT'
 
 java {
@@ -17,16 +17,16 @@ repositories {
 	mavenCentral()
 }
 
-
-
 dependencies {
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '3.3.5'
-
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.3.5'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.3.5' 
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.3.5'
+	
+	
 }
 
 tasks.named('test') {

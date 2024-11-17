@@ -24,7 +24,8 @@ public class ProductEntity {
     private String country;
     @Column(name = "product_code",length = 6)
     private String code;
-    @Column(name = "product_price")
+    @Column(name = "product_price")       
+
     private double price;
     private String image;
     private String description;
@@ -70,7 +71,7 @@ public class ProductEntity {
         return price;
     }
     public void setPrice(double price) {
-        this.price = 0.0;
+        this.price = price;
     }
     public String getImage() {
         return image;

@@ -9,6 +9,16 @@
       "projectName": "spring",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringgroupcApplication<spring>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.springc.spring.Controller.springgroupc.src.main.java.com.springc.springgroupc.SpringgroupcApplication",
+      "projectName": "spring",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

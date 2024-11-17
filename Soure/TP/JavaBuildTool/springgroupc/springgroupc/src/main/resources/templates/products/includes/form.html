@@ -1,29 +1,36 @@
-<form
-  th:fragment="content-list"
-  th:action="@{/products/saveProduct}"
-  th:object="${formProduct}"
-  method="POST"
-  enctype="multipart/form-data">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      th:field="*{name}"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp" />
-    <div id="emailHelp" class="form-text">
-      We'll never share your email with anyone else.
+<div
+  class="container d-flex flex-column justify-content-center align-content-center"
+  th:fragment="content-list">
+  <h2>Create Product Info From</h2>
+  <form
+    th:action="@{/products/saveProduct}"
+    th:object="${formProduct}"
+    method="POST"
+    enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input
+        class="form-control"
+        th:field="*{name}"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp" />
     </div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input
-      type="password"
-      th:field="*{description}"
-      class="form-control"
-      id="exampleInputPassword1" />
-  </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <input
+        th:field="*{description}"
+        class="form-control"
+        id="exampleInputPassword1" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input
+        type="number"
+        th:field="*{price}"
+        class="form-control"
+        id="exampleInputPassword1" />
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
