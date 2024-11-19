@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringgroupcApplication<springgroupc>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.springc.springgroupc.SpringgroupcApplication",
+      "projectName": "springgroupc",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

@@ -19,6 +19,16 @@
       "projectName": "spring",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Application<SarenSokmeak_Lab04_GIC_C>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.springc.spring.Application",
+      "projectName": "SarenSokmeak_Lab04_GIC_C",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

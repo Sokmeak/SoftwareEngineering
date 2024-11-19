@@ -1,6 +1,5 @@
 package com.springc.spring.Controllers;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.springc.spring.ProductEntity.Product;
@@ -48,12 +48,39 @@ public class TaskController {
          model.addAttribute("product", new Product());
         return "formAdd";  
     }
+
+
+    
+
+        @PostMapping("task1/edit/{index}")
+        public String updateProduct(@ModelAttribute Product pro ,@PathVariable int index) {
+            System.out.println("Proudct "+index+" has updated.");
+
+            // how can i get index?
+            
+            products.set(index, pro);
+            
+            return "redirect:/TP05/task1";
+        }
+
+        @GetMapping("task1/edit/{index}")
+        public String getUpdateAdd(@PathVariable int index, Model model) {
+        Product product = products.get(index); // Retrieve the product by index
+        model.addAttribute("product", product);
+        model.addAttribute("index", index);   // Pass the index to the template
+        return "editForm";
+    }
+        
+        
     @PostMapping("task1/add")
     public String addProduct(@ModelAttribute Product product) {
         System.out.println("\n\n\n\n------- Hello -------");
 
         System.out.println(product.toString());
        products.add(product);
+       
+
+    
         
       return "redirect:/TP05/task1";
     }
