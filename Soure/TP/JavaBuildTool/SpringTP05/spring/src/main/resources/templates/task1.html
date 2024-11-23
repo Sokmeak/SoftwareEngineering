@@ -38,11 +38,7 @@
           </td>
           <td th:text="${product.getDescription()}"></td>
           <td>
-            <a th:href="@{/TP05/task1/edit/{index}(index=${iterStat.index})}"
-              >Edit</a
-            >
-
-            >
+            <a th:href="@{/edit/{id}(id=${iterStat.index})}">Edit</a>
           </td>
         </tr>
       </table>

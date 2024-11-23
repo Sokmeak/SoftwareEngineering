@@ -23,7 +23,7 @@ public class Product {
     public String getOriginCountry() {
         return originCountry;
     }
-    public void setOriginCountry(String orginCountry) {
+    public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
     }
     public double getPrice() {

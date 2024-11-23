@@ -50,27 +50,33 @@ public class TaskController {
     }
 
 
+  
     
 
-        @PostMapping("task1/edit/{index}")
-        public String updateProduct(@ModelAttribute Product pro ,@PathVariable int index) {
-            System.out.println("Proudct "+index+" has updated.");
-
-            // how can i get index?
-            
-            products.set(index, pro);
-            
-            return "redirect:/TP05/task1";
+    @GetMapping("task1/edit/{id}")
+    public String editProduct(@PathVariable("id") int id, Model model) {
+        if (id >= 0 && id < products.size()) {
+            Product product = products.get(id); // Retrieve the product by index
+            model.addAttribute("product", product);
+            model.addAttribute("id", id); // Pass the index to the form
+            return "editForm"; // Render the form template
+        } else {
+            return "redirect:/TP05/task1"; // Redirect if invalid index
         }
-
-        @GetMapping("task1/edit/{index}")
-        public String getUpdateAdd(@PathVariable int index, Model model) {
-        Product product = products.get(index); // Retrieve the product by index
-        model.addAttribute("product", product);
-        model.addAttribute("index", index);   // Pass the index to the template
-        return "editForm";
     }
-        
+    
+    @PostMapping("task1/edit/{id}")
+    public String updateProduct(@PathVariable("id") int id, @ModelAttribute Product updatedProduct) {
+        if (id >= 0 && id < products.size()) {
+            products.set(id, updatedProduct); // Update the product in the list
+            System.out.println("Product with ID " + id + " updated: " + updatedProduct);
+        } else {
+            System.out.println("Invalid product ID: " + id);
+        }
+        return "redirect:/TP05/task1"; // Redirect to product list
+    }
+    
+         
         
     @PostMapping("task1/add")
     public String addProduct(@ModelAttribute Product product) {
